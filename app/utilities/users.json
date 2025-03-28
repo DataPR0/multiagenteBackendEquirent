@@ -1,0 +1,96 @@
+[
+    {
+        "username": "admin",
+        "full_name": "Administrador",
+        "email": "analitica.garaje@finanzauto.com.co",
+        "password": "test",
+        "role": "ADMIN"
+    },
+    {
+        "username": "deyanira.diaz",
+        "full_name": "Deyanira Díaz Braidy",
+        "email": "deyanira.diaz@finanzauto.com.co",
+        "password": "test",
+        "role": "PRINCIPAL",
+        "subordinates": ["manuel.arias"]
+    },
+    {
+        "username": "sergio.garzon",
+        "full_name": "Sergio Alfonso Garzón Garzón",
+        "email": "sergio.garzon@finanzauto.com.co",
+        "password": "test",
+        "role": "PRINCIPAL",
+        "subordinates": ["laura.gutierrez"]
+    },
+    {
+        "username": "manuel.arias",
+        "full_name": "Manuel Felipe Arias Pineda",
+        "email": "manuel.arias@finanzauto.com.co",
+        "password": "test",
+        "role": "SUPERVISOR",
+        "subordinates": ["carlos.obregon", "diana.matamoros", "sergio.rozo", "jorge.morales", "juan.infante"]
+    },
+    {
+        "username": "laura.gutierrez",
+        "full_name": "Laura Nicole Gutiérrez Narváez",
+        "email": "laura.gutierrez@finanzauto.com.co",
+        "password": "test",
+        "role": "SUPERVISOR"
+    },
+    {
+        "username": "carlos.obregon",
+        "full_name": "Carlos Arturo Obregón Ravelo",
+        "email": "carlos.obregon@finanzauto.com.co",
+        "password": "test",
+        "role": "AGENT"
+    },
+    {
+        "username": "diana.matamoros",
+        "full_name": "Diana Julieth Matamoros",
+        "email": "diana.matamoros@finanzauto.com.co",
+        "password": "test",
+        "role": "AGENT"
+    },
+    {
+        "username": "sergio.rozo",
+        "full_name": "Sergio Andres Rozo Pulido",
+        "email": "sergio.rozo@finanzauto.com.co",
+        "password": "test",
+        "role": "AGENT"
+    },
+    {
+        "username": "jorge.morales",
+        "full_name": "Jorge Aurelio Morales Manrique",
+        "email": "jorge.morales@finanzauto.com.co",
+        "password": "test",
+        "role": "AGENT"
+    },
+    {
+        "username": "juan.infante",
+        "full_name": "Juan Manuel Infante Quiroga",
+        "email": "juan.infante@finanzauto.com.co",
+        "password": "test",
+        "role": "AGENT"
+    },
+    {
+        "username": "soporte",
+        "full_name": "Soporte",
+        "email": "soporte@finanzauto.com.co",
+        "password": "test",
+        "role": "SUPPORT"
+    },
+    {
+        "username": "seguridad",
+        "full_name": "Seguridad de datos",
+        "email": "seguridad@finanzauto.com.co",
+        "password": "test",
+        "role": "DATA_SECURITY"
+    },
+    {
+        "username": "auditoria",
+        "full_name": "Auditoría",
+        "email": "auditoria@finanzauto.com.co",
+        "password": "test",
+        "role": "AUDIT"
+    }
+]

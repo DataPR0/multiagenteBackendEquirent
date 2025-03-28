@@ -1,0 +1,53 @@
+services:
+  backend:
+    build:
+      context: ./
+    container_name: backend
+    ports:
+      - "5001"
+    environment:
+      REDIS_HOST: redis
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    volumes:
+      - ./app:/app 
+
+  frontend:
+    build:
+      context: ../MultiAgenteFront  # Ruta al repositorio front
+    container_name: frontend
+    ports:
+      - "3006"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      retries: 3
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Montaje de configuración nginx
+    ports:
+      - "8081:8081"  # Nginx escucha en el puerto 8080
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

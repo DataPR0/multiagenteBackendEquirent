@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "multiagente"
+version = "0.1.0"
+description = ""
+authors = ["JuanDevFinanzauto <juan.infante@finanzauto.com.co>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.5"}
+twilio = "^9.3.7"
+sqlalchemy = "^2.0.36"
+pandas = "^2.2.3"
+pydantic-settings = "^2.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
