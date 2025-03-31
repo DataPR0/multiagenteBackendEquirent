@@ -74,7 +74,7 @@ async def chatbot_webhook(request: Request):
                 logger.info(f"Webhook request ignored, conversation {conversation.id} already closed")
                 return False
             conversation_id = conversation.id
-            load_chatbot_messages(thread_id, conversation_id, body.get('message'))
+            # load_chatbot_messages(thread_id, conversation_id, body.get('message'))
             asyncio.create_task(send_default_message(thread_id))
     else:
         conversation_id = conversation.id

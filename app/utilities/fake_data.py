@@ -278,7 +278,7 @@ if __name__ == "__main__":
     initialize_database()
     load_default_data()
     users_start, users_end = load_users()
-    if users_end > 0:
-        load_conversations(users_start, users_end)
+    # if users_end > 0:
+    #     load_conversations(users_start, users_end)
     load_templates()
     # load_admin()
