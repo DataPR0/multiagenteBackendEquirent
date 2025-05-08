@@ -3,7 +3,7 @@ from app.helpers import users
 
 router = APIRouter()
 
-@router.get("/{entity}/", status_code=200)
+@router.get("/{entity}", status_code=200)
 async def get_list_by_entity(entity: str) -> list:
     """
     Retrieves a list of entities based on the provided entity type.
