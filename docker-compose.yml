@@ -16,7 +16,7 @@ services:
 
   frontend:
     build:
-      context: ../MultiAgenteFront  # Ruta al repositorio front
+      context: ../multiagenteFrontEquirent  # Ruta al repositorio front
     container_name: frontend_equirent
     ports:
       - "3006"
@@ -27,7 +27,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: redis_multiagente
+    container_name: redis_multiagente_eq
     networks:
       - app-network
     healthcheck:
@@ -37,11 +37,11 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: nginx_multiagente
+    container_name: nginx_multiagente_eq
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Montaje de configuración nginx
     ports:
-      - "8081:8081"  # Nginx escucha en el puerto 8080
+      - "8071:8081"  # Nginx escucha en el puerto 8080
     depends_on:
       - backend
       - frontend
