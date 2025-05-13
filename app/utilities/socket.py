@@ -59,7 +59,7 @@ class WebSocketManager:
         self.notifications: Dict[int, List[WebSocket]] = {}
         # conversations: {conversation_id: {user_id: [WebSocket, WebSocket, ...]}}
         self.conversations: Dict[int, Dict[int, List[WebSocket]]] = {}
-        self.pubsub_client = RedisPubSubManager(settings.redis_host, settings.redis_port)
+        self.pubsub_client = RedisPubSubManager(settings.redis_host, 6379)
         self.lock = asyncio.Lock()  # Add a lock to protect shared resources
 
     async def add_connection(self, ws_config: WebSocketConfig, websocket: WebSocket) -> None:
