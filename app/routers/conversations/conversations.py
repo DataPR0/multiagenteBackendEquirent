@@ -38,7 +38,7 @@ async def get_all_conversations(
     return response
 
 
-@router.get("/{id}/")
+@router.get("/{id}")
 async def get_conversation_messages(
     id: int, 
     request: Request
@@ -68,7 +68,7 @@ async def get_conversation_messages(
     return response
 
 
-@router.post("/{id}/")
+@router.post("/{id}")
 async def send_message(
     id: int, 
     request: Request

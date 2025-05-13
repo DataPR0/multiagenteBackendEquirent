@@ -26,7 +26,7 @@ async def get_users_by_role(request: Request):
     return users_list
 
 
-@router.post("/{id}/")
+@router.post("/{id}")
 async def get_users_by_conversation(id: int):
     """
     Retrieves a list of users participating in a conversation.
