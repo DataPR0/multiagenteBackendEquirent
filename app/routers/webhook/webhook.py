@@ -3,6 +3,7 @@ import asyncio
 from fastapi import APIRouter, Request, HTTPException
 from app.helpers import messages, conversations, users
 from app.helpers.chatbot import load_chatbot_messages
+from app.helpers.messages import save_message
 from app.helpers.twilio import send_message, end_conversation
 from app.models.message import Message, SenderTypeEnum
 from app.models.user import UserRoleEnum
@@ -34,11 +35,20 @@ async def send_default_message(thread_id: str):
     conversation = conversations.get_conversation_by_thread_id(thread_id)
     if not conversation.assigned_user_id and conversation.state_id != ConversationStateEnum.CLOSED:
         message_count = conversations.get_conversation_user_messages_count(thread_id)
-        if message_count == 0:
+        if message_count > 0:
             return
         twilio_response = await send_message(conversation.client_phone, DEFAULT_MESSAGE)
         if not twilio_response.status_code == httpx.codes.OK:
             logger.error("Error sending default message to client")
+        try:
+            message = Message()
+            message.content = DEFAULT_MESSAGE
+            message.conversation_id = conversation.id,
+            message.sender_type = SenderTypeEnum.AGENT,
+            message.user_id = 1
+            save_message(message)
+        except Exception as e:
+            logger.error(f"Error while saving default message: {e}")
         conversations.end_conversation(conversation.id)
         end_conversation(conversation.conversation_id, conversation.client_phone)
 
@@ -74,7 +84,7 @@ async def chatbot_webhook(request: Request):
                 logger.info(f"Webhook request ignored, conversation {conversation.id} already closed")
                 return False
             conversation_id = conversation.id
-            # load_chatbot_messages(thread_id, conversation_id, body.get('message'))
+            load_chatbot_messages(thread_id, conversation_id, body.get('message'))
             asyncio.create_task(send_default_message(thread_id))
     else:
         conversation_id = conversation.id

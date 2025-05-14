@@ -58,7 +58,7 @@ class UserRole(Base):
     __tablename__ = 'tbl_usuarios_roles'
 
     id = Column("rol_id", Integer, primary_key=True, index=True)
-    code = Column("nombre_rol", String, unique=True, index=True)
+    code = Column("nombre_rol", String, unique=False, index=False)
 
     def to_dict(self):
         return {
@@ -77,7 +77,7 @@ class UserState(Base):
     __tablename__ = 'tbl_usuarios_estados'
 
     id = Column("estado_id", Integer, primary_key=True, index=True)
-    code = Column("nombre_estado", String, unique=True, index=True)
+    code = Column("nombre_estado", String, unique=False, index=False)
 
     def to_dict(self):
         return {
@@ -174,9 +174,9 @@ class User(Base):
     __tablename__ = 'tbl_usuarios'
 
     id = Column("usuario_id", Integer, primary_key=True, index=True)
-    username = Column("usuario", String, unique=True, index=True)
+    username = Column("usuario", String, unique=False, index=False)
     full_name = Column("nombre", String)
-    email = Column("correo", String, unique=True, index=True)
+    email = Column("correo", String, unique=False, index=False)
     password = Column("contrasena", String, nullable=True)
     role_id = Column("rol_id", Integer, ForeignKey('tbl_usuarios_roles.rol_id'))
     state_id = Column("estado_id", Integer, ForeignKey('tbl_usuarios_estados.estado_id'))
@@ -284,7 +284,7 @@ class EventTypes(Base):
     __tablename__ = "tbl_usuarios_logs_eventos"
 
     id = Column("evento_id", Integer, primary_key=True, index=True)
-    code = Column("nombre_evento", String, unique=True, index=True)
+    code = Column("nombre_evento", String, unique=False, index=False)
 
 
 class UserLogs(Base):

@@ -137,6 +137,7 @@ def authenticate_user(username: str, password: str) -> User | None:
     User | None: The authenticated user, or None if authentication fails.
     """
     user = get_user_by_username(username)
+    print(user)
     if not user:
         return None
     if not verify_password(password, user.password):

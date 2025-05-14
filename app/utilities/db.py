@@ -18,7 +18,7 @@ class DatabaseConnectionPool:
     """
     _instance = None
     _lock = threading.Lock()
-    databases = {'multiagent': settings.sqlite_uri}
+    databases = {'multiagent': settings.sqlserver_uri}
 
     def __new__(cls):
         """

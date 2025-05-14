@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     twilio_account_sid: str = 'your_account_sid_here'
     twilio_auth_token: str = 'your_auth_token_here'
     sqlite_uri: str = "sqlite:///multiagent.db"
-    sqlserver_uri: str = "mssql+pyodbc://username:password@localhost/mydatabase?driver=ODBC+Driver+17+for+SQL+Server"
+    sqlserver_uri: str = "mssql+pyodbc://DesarrolloDatapro:7VZ8EW-tA4*J@192.168.40.17/ChatbotsDatapro?driver=ODBC+Driver+17+for+SQL+Server"
     chatbot_url: str = "http://localhost:5000"
     front_url: str = "http://localhost:3006"
     jwt_secret_key: str = "your_secret_key_here"

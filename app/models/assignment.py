@@ -37,7 +37,7 @@ class AssignmentType(Base):
     """
     __tablename__ = 'tbl_asignaciones_eventos'
     id = Column("evento_id", Integer, primary_key=True, index=True)
-    code = Column("nombre_evento", String, unique=True, index=True)
+    code = Column("nombre_evento", String(100), unique=True, index=True)  # Especificando longitud máxima de 100 caracteres
 
 
 class Assignment(Base):

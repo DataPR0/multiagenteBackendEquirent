@@ -39,7 +39,7 @@ class ConversationState(Base):
     """
     __tablename__ = 'tbl_conversaciones_estados'
     id = Column("estado_id", Integer, primary_key=True, index=True)
-    code = Column("nombre_estado", String, unique=True, index=True)
+    code = Column("nombre_estado", String, unique=False, index=False)
 
 
 class Conversation(Base):
@@ -81,7 +81,7 @@ class Conversation(Base):
     __tablename__ = 'tbl_conversaciones'
 
     id = Column("id", Integer, primary_key=True, index=True, autoincrement=True)
-    conversation_id = Column("conversacion_id", String, index=True)
+    conversation_id = Column("conversacion_id", String, index=False)
     client_phone = Column("telefono_asociado", String)
     assigned_user_id = Column("usuario_id", Integer, ForeignKey('tbl_usuarios.usuario_id'), nullable=True)
     credit_number = Column("numero_credito_seleccionado", String)

@@ -16,7 +16,7 @@ services:
 
   frontend:
     build:
-      context: ../multiagenteFrontEquirent  # Ruta al repositorio front
+      context: ../MultiAgenteFront  # Ruta al repositorio front
     container_name: frontend_equirent
     ports:
       - "3006"
